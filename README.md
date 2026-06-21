@@ -24,11 +24,11 @@ Sistema de retail compuesto por dos microservicios independientes (MS_PRODUCTOS 
 ## Estructura del proyecto
 
 
-Ev3-Retail/
-├── EV_3_evRetail-master/     # MS_PRODUCTOS (puerto 8082)
-├── ev3-ms-venta-master/      # MS_VENTAS (puerto 8083)
-├── api-gateway/              # API Gateway (puerto 8080)
-├── docker-compose.yml
+Ev3-Retail/   
+├── EV_3_evRetail-master/    
+├── ev3-ms-venta-master/     
+├── api-gateway/              
+├── docker-compose.yml   
 └── README.md
 
 
