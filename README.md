@@ -63,8 +63,8 @@ Ev3-Retail/
 
 | Servicio | Puerto directo | Ruta por Gateway |
 |----------|---------------|-----------------|
-| MS_PRODUCTOS | 8082 | http://localhost:8080/api/productos |
-| MS_VENTAS | 8083 | http://localhost:8080/api/ventas |
+| MS_PRODUCTOS | 8082 | http://localhost:8082/api/productos |
+| MS_VENTAS | 8083 | http://localhost:8083/api/ventas |
 | API Gateway | 8080 | http://localhost:8080 |
 
 ---
