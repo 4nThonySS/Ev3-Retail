@@ -102,10 +102,10 @@ Respuesta esperada:
 
 bash
 # Compilar cada proyecto
-cd EV_3_evRetail-master -> .\mvnw clean package -DskipTests
-cd ../ev3-ms-venta-master -> .\mvnw clean package -DskipTests
-cd ../api-gateway -> .\mvnw clean package -DskipTests
-cd ..
+- cd EV_3_evRetail-master -> .\mvnw clean package -DskipTests
+- cd ../ev3-ms-venta-master -> .\mvnw clean package -DskipTests
+- cd ../api-gateway -> .\mvnw clean package -DskipTests
+- cd .. (Volver al directorio raíz)
 
 # Levantar todos los servicios
 docker-compose up --build
