@@ -102,9 +102,9 @@ Respuesta esperada:
 
 bash
 # Compilar cada proyecto
-cd EV_3_evRetail-master && mvn clean package -DskipTests
-cd ../ev3-ms-venta-master && mvn clean package -DskipTests
-cd ../api-gateway && mvn clean package -DskipTests
+cd EV_3_evRetail-master -> .\mvnw clean package -DskipTests
+cd ../ev3-ms-venta-master -> .\mvnw clean package -DskipTests
+cd ../api-gateway -> .\mvnw clean package -DskipTests
 cd ..
 
 # Levantar todos los servicios
