@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  ms-productos:
+    build: ./EV_3_evRetail-master
+    container_name: productos
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./Wallet_evretail:/wallet
+
+  ms-ventas:
+    build: ./ev3-ms-venta-master
+    container_name: ventas
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./Wallet_evretail:/wallet
+
+  api-gateway:
+    build: ./api-gateway
+    container_name: gateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - ms-productos
+      - ms-ventas
