@@ -77,6 +77,15 @@ Ev3-Retail/
 
 ---
 
+## Tablero Trello
+Seguimiento de tareas y avance del proyecto:
+
+<img width="1600" height="612" alt="image" src="https://github.com/user-attachments/assets/f576a28f-ff84-4ecf-be7f-3d2a923ddd93" />
+
+Link:
+https://trello.com/invite/b/6a384d50d9bba030425795c5/ATTI11026516bb209b5487e9ee366f003de5F0A751A1/fullstack
+---
+
 ## Contenedores Docker
 
 El sistema se ejecuta mediante Docker Compose y levanta:
