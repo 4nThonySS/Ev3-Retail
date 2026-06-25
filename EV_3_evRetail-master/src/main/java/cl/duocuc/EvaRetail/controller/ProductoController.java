@@ -5,6 +5,7 @@ import cl.duocuc.EvaRetail.dto.ApiResponse;
 import cl.duocuc.EvaRetail.dto.ProductoRequest;
 import cl.duocuc.EvaRetail.dto.ProductoResponse;
 import cl.duocuc.EvaRetail.service.ProductoService;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -135,7 +136,10 @@ public class ProductoController {
             @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "404", description = "Producto no encontrado con el ID proporcionado")
     })
     public ResponseEntity<ProductoResponse> reducirStock(
+            @Parameter(description = "ID del producto", example = "1")
             @PathVariable Long id,
+
+            @Parameter(description = "Cantidad a reducir del stock", example = "5")
             @RequestParam Integer cantidad) {
 
         log.info("Recibida petición para reducir stock - ID: {}, Cantidad: {}", id, cantidad);
