@@ -122,4 +122,32 @@ class ProductoServiceTest {
 
         assertEquals(7, res.getStock());
     }
+
+
+    //Test prueba
+    //Crea producto con 10 unidades de stock, simulando que el repositorio devuelve ese producto
+    @Test
+    void reducirStock_conStockSuficiente() {
+
+        Producto producto = new Producto();
+        producto.setId(1L);
+        producto.setNombre("Laptop");
+        producto.setPrecio(1000.0);
+        producto.setStock(10);
+
+        when(productoRepository.findById(1L))
+                .thenReturn(Optional.of(producto));
+
+        when(productoRepository.save(any(Producto.class)))
+                .thenAnswer(invocation -> invocation.getArgument(0));
+
+        ProductoResponse respuesta = productoService.reducirStock(1L, 3);
+
+        assertEquals(7, respuesta.getStock());
+
+        verify(productoRepository).findById(1L);
+        verify(productoRepository).save(any(Producto.class));
+    }
+
+
 }
