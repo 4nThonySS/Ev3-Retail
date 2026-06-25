@@ -127,4 +127,42 @@ class VentaServiceTest {
         assertThrows(RuntimeException.class,
                 () -> ventaService.eliminarVenta(99L));
     }
+
+    @Test
+    void actualizarVenta_debeRetornarVentaActualizada() {
+        // Se prepara el request con los nuevos datos
+        VentaRequest request = new VentaRequest();
+        request.setCliente("Carlos");
+        request.setProductoId(3L);
+        request.setCantidad(5);
+
+        // Se crea la venta que ya existe en la BD
+        Venta ventaExistente = new Venta();
+        ventaExistente.setId(1L);
+        ventaExistente.setCliente("Pedro");
+        ventaExistente.setProductoId(1L);
+        ventaExistente.setCantidad(2);
+        ventaExistente.setTotal(200.0);
+        ventaExistente.setFecha(LocalDateTime.now());
+        // Se crea como quedara la venta despues de actualizar
+        Venta ventaActualizada = new Venta();
+        ventaActualizada.setId(1L);
+        ventaActualizada.setCliente("Carlos");
+        ventaActualizada.setProductoId(3L);
+        ventaActualizada.setCantidad(5);
+        ventaActualizada.setTotal(200.0);
+        ventaActualizada.setFecha(LocalDateTime.now());
+        // Se le dice a Mockito que simule el repositorio
+        when(ventaRepository.findById(1L)).thenReturn(Optional.of(ventaExistente));
+        when(ventaRepository.save(any())).thenReturn(ventaActualizada);
+
+        // Se ejecuta el metodo real
+        VentaResponse res = ventaService.actualizarVenta(1L, request);
+
+        // Se verifica que los datos sean correctos
+        assertEquals("Carlos", res.getCliente());
+        assertEquals(3L, res.getProductoId());
+        assertEquals(5, res.getCantidad());
+        verify(ventaRepository).save(any());
+    }
 }
