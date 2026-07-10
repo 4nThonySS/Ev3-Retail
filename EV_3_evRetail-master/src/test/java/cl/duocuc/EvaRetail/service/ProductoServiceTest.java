@@ -101,6 +101,23 @@ class ProductoServiceTest {
                 () -> productoService.reducirStock(1L, 5));
     }
 
+    //pedido examen
+    @Test
+    void listarProductos_sinDatos_retornaVacio() {
+        //simula que el repositorio no tiene ningun producto registrado
+        when(productoRepository.findAll()).thenReturn(List.of());
+
+        // ejecuta el metodo real del servicio
+        List<ProductoResponse> lista = productoService.listarProductos();
+
+        //se verifica que la lista retornada no sea null y esté vacía
+        assertNotNull(lista);
+        assertTrue(lista.isEmpty());
+
+        // Se verifica que findAll() fue llamado exactamente una vez
+        verify(productoRepository, times(1)).findAll();
+    }
+
     @Test
     void reducirStock_correcto_debeActualizarStock() {
         Producto p = new Producto();
