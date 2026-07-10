@@ -27,4 +27,12 @@ public class GatewayInfoControllerTest {
         assertTrue(response.getRutasDisponibles().contains("/api/productos/**"));
         assertTrue(response.getRutasDisponibles().contains("/api/ventas/**"));
     }
+
+    @Test
+    void retailInfo_debeRetornarElAmbienteDeEjecucion() {
+        GatewayInfoResponse response = controller.retailInfo();
+
+        assertNotNull(response.getAmbiente());
+        assertEquals("local", response.getAmbiente());
+    }
 }

@@ -8,17 +8,19 @@ public class GatewayInfoResponse {
     private String estado;
     private String version;
     private List<String> rutasDisponibles;
+    private String ambiente;
 
     public GatewayInfoResponse() {
     }
 
     public GatewayInfoResponse(String sistema, String gateway, String estado, String version,
-                               List<String> rutasDisponibles) {
+                               List<String> rutasDisponibles, String ambiente) {
         this.sistema = sistema;
         this.gateway = gateway;
         this.estado = estado;
         this.version = version;
         this.rutasDisponibles = rutasDisponibles;
+        this.ambiente = ambiente;
     }
 
     public String getSistema() {
@@ -59,5 +61,13 @@ public class GatewayInfoResponse {
 
     public void setRutasDisponibles(List<String> rutasDisponibles) {
         this.rutasDisponibles = rutasDisponibles;
+    }
+
+    public String getAmbiente() {
+        return ambiente;
+    }
+
+    public void setAmbiente(String ambiente) {
+        this.ambiente = ambiente;
     }
 }

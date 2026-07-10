@@ -12,14 +12,15 @@ import java.util.List;
 public class GatewayInfoController {
     @GetMapping("/gateway/retail-info")
     @Operation(summary = "Información de diagnóstico del Gateway",
-            description = "Retorna el nombre del sistema, el estado del Gateway, la versión y las rutas disponibles.")
+            description = "Retorna el nombre del sistema, el estado del Gateway, la versión, las rutas disponibles y el ambiente de ejecución.")
     public GatewayInfoResponse retailInfo() {
         return new GatewayInfoResponse(
                 "Sistema Retail",
                 "api-gateway",
                 "OK",
                 "1.0",
-                List.of("/api/productos/**", "/api/ventas/**")
+                List.of("/api/productos/**", "/api/ventas/**"),
+                "local"
         );
     }
 }
